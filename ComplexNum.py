@@ -68,12 +68,15 @@ class ComplexNum:
         return math.sqrt((self*self.conjugate()).re)
 
 ## Question 2 : Type & Is function
+
+# 2.1
 def isInstancePPL(object1, classInfo):
     if(object1 != None and classInfo != None):
         return (classInfo in type(object1).__mro__)
     else:
         raise TypeError ("First input has to be object and second input has to be class!")
 
+# 2.2
 def numInstancePPL(object1, classInfo):
     if(isInstancePPL(object1,classInfo) == False):
         return 0
@@ -83,12 +86,14 @@ def numInstancePPL(object1, classInfo):
             return count
         count+=1
 
+# 2.3
 def isSubclassPPL(Class, classInfo):
     if (Class != None and classInfo != None):
         return (classInfo in Class.__bases__ or Class is classInfo)
     else:
         raise TypeError ("First input has to be Class Type and second input has to be class!")
 
+# 2.4
 def numSubclassPPL(Class, classInfo):
     if(isSubclassPPL(Class,classInfo) == False):
         return 0
@@ -144,6 +149,8 @@ def numSubclassPPL(Class, classInfo):
 
 
 #Question 3 : Higt Lever Functions
+
+# 3.1
 def count_if(lst,func):
     try:
         if(lst !=None and func != None):
@@ -152,7 +159,7 @@ def count_if(lst,func):
        return ("Not good arguments!")
     return ("Not good arguments!")
 
-
+# 3.2
 def for_all(lst,func1,func2):
     try:
         if(lst !=None and func1 != None and func2 != None):
@@ -161,6 +168,7 @@ def for_all(lst,func1,func2):
        return ("Not good arguments!")
     return ("Not good arguments!")
 
+# 3.3
 def for_all_red(lst, func1, func2):
     try:
         return (func2(functools.reduce(func1,lst)))
@@ -168,6 +176,7 @@ def for_all_red(lst, func1, func2):
        return ("Not good arguments!")
     return ("Not good arguments!")
 
+# 3.4
 def there_exists(lst, n, func1):
     if(n != None and count_if(lst,func1) >= n):
         return True
